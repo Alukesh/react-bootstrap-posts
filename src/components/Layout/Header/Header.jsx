@@ -5,14 +5,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
     return (
         <header>
             <Navbar key={'sm'} bg="light" expand={'sm'} className="mb-3">
-                <Container fluid>
-                    <Navbar.Brand href="#">Alukesh.github</Navbar.Brand>
+                <Container >
+                    <Navbar.Brand as={Link} to={'/'}>Offposts</Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'sm'}`} />
                     <Navbar.Offcanvas
                         id={`offcanvasNavbar-expand-${'sm'}`}
@@ -21,26 +22,13 @@ const Header = () => {
                     >
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'sm'}`}>
-                                Offcanvas
+                                Offposts
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link href="#action1">Home</Nav.Link>
-                                <Nav.Link href="#action2">Link</Nav.Link>
-                                <NavDropdown
-                                    title="Dropdown"
-                                    id={`offcanvasNavbarDropdown-expand-${'sm'}`}
-                                >
-                                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action4">
-                                        Another action
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action5">
-                                        Something else here
-                                    </NavDropdown.Item>
-                                </NavDropdown>
+                            <Nav className="justify-content-end flex-grow-1 pe-3 " style={{border:'none'}} variant='tabs'>
+                                <Nav.Link eventKey={'/'} as={Link} to="/">Home</Nav.Link>
+                                <Nav.Link eventKey={'/about-me'} as={Link} to="/about-me">About Me</Nav.Link>
                             </Nav>
                             <Form className="d-flex">
                                 <Form.Control
