@@ -1,16 +1,59 @@
 import Card from 'react-bootstrap/Card';
+import styles from './postCard.module.scss'
+import Image from 'react-bootstrap/Image';
+import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import { Button, Overlay, Popover } from 'react-bootstrap';
 
-const HomePost = () => {
+const HomePost = ({ item, author }) => {
+    const [show, setShow] = useState(false);
+    const [target, setTarget] = useState(null);
+    const ref = useRef(null);
+
+    const handleClick = (event) => {
+        setShow(!show);
+        setTarget(event.target);
+    };
+
+
     return (
-        <Card>
-            <Card.Img variant="top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22285%22%20height%3D%22160%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20285%20160%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_188682b4429%20text%20%7B%20fill%3A%23999%3Bfont-weight%3Anormal%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_188682b4429%22%3E%3Crect%20width%3D%22285%22%20height%3D%22160%22%20fill%3D%22%23373940%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22106.6937484741211%22%20y%3D%2286.24000034332275%22%3E285x160%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" />
-            <Card.Body>
-                <Card.Title>Card title</Card.Title>
+        <Card className={styles.card__wrapper} style={{ height: "100%" }}>
+            <Card.Body className={styles.card} >
+                <Card.Title>{item?.title}</Card.Title>
                 <Card.Text>
-                    This is a longer card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
+                    {item?.body}
                 </Card.Text>
+                <div className={styles.card__bottom}>
+                    <div>
+                        <Card.Link as={Link} to={'/user/' + author?.id}>
+                            <Image width={40} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9KehZ0Xz2eEw6uQZDN7YcxdzRfLNfyDs-Hg&usqp=CAU" rounded />
+                        </Card.Link>
+                        {/* <Card.Subtitle>{author?.name}</Card.Subtitle> */}
+                    </div>
+                    <div>
+                        <Card.Link href="#">Read More</Card.Link>
+                        <Card.Link href="#">Other Posts</Card.Link>
+                    </div>
+                </div>
+                <div ref={ref} className='mt-2'>
+                    <Button onClick={handleClick}>Comments</Button>
+
+                    <Overlay
+                        show={show}
+                        target={target}
+                        placement="bottom"
+                        container={ref}
+                        containerPadding={20}
+                    >
+                        <Popover id="popover-contained">
+                            <Popover.Header as="h3">Popover bottom</Popover.Header>
+                            <Popover.Body>
+                                <strong>Holy guacamole!</strong> Check this info.
+                            </Popover.Body>
+                        </Popover>
+                    </Overlay>
+                </div>
+              
             </Card.Body>
         </Card>
     );

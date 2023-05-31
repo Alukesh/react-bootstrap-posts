@@ -9,8 +9,16 @@ const instanse = axios.create({
 
 export const getAllPosts = async () => {
     try {
-        const {data} = await instanse.get()
-        console.log(data);
+        const {data} = await instanse.get('/posts?_page=0&_limit=9')
+        // console.log(data);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const getAllUsers = async () => {
+    try {
+        const {data} = await instanse.get('/users')
         return data;
     } catch (error) {
         console.log(error);

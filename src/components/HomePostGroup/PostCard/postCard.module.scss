@@ -1,0 +1,25 @@
+.card{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__wrapper{
+    transition: all .5s ease;
+}
+
+.card__wrapper:hover{
+    // background-color: #f00;
+    box-shadow: 2px 4px 28px 4px #00000030;
+}
+
+.card__bottom{
+    margin-top: auto;
+    padding-top: 10px;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+}

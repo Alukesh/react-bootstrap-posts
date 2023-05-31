@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <header>
-            <Navbar key={'sm'} bg="light" expand={'sm'} className="mb-3">
+            <Navbar key={'sm'} bg="light" expand={''} className="mb-3">
                 <Container >
                     <Navbar.Brand as={Link} to={'/'}>Offposts</Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'sm'}`} />
@@ -30,15 +30,6 @@ const Header = () => {
                                 <Nav.Link eventKey={'/'} as={Link} to="/">Home</Nav.Link>
                                 <Nav.Link eventKey={'/about-me'} as={Link} to="/about-me">About Me</Nav.Link>
                             </Nav>
-                            <Form className="d-flex">
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Search"
-                                    className="me-2"
-                                    aria-label="Search"
-                                />
-                                <Button variant="outline-success">Search</Button>
-                            </Form>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                 </Container>

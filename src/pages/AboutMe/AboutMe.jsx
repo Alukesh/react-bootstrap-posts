@@ -4,8 +4,8 @@ import { Button, Modal } from 'react-bootstrap';
 const AboutMe = () => {
     const [show, setShow] = useState(false);
     return (
-        <div>
-            AboutMe
+        <div className='container'>
+            {/* AboutMe */}
             <Button variant="primary" onClick={() => setShow(true)}>
                 Custom Width Modal
             </Button>
