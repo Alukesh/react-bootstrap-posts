@@ -11,7 +11,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 posts: [
-                    ...state.posts,
+                    // ...state.posts,
                     ...action.payload
                 ]
             }
@@ -20,7 +20,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 users: [
-                    ...state.users,
+                    // ...state.users,
                     ...action.payload
                 ]
             }
