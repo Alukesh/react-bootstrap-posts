@@ -7,18 +7,11 @@ const instanse = axios.create({
 })
 
 
-export const getAllPosts = async () => {
+
+
+export async function apiPlaceholderGet(pattern = '') {
     try {
-        const {data} = await instanse.get('/posts?_page=0&_limit=9')
-        // console.log(data);
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
-}
-export const getAllUsers = async () => {
-    try {
-        const {data} = await instanse.get('/users')
+        const {data} = await axios.get(`https://jsonplaceholder.typicode.com/${pattern}`)
         return data;
     } catch (error) {
         console.log(error);

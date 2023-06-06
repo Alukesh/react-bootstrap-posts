@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
-import { getAllPosts, getAllUsers } from "../../axios/axiosApi";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import HomePostGroup from "../../components/HomePostGroup/HomePostGroup";
 import Pagination from 'react-bootstrap/Pagination';
-import { useSelector } from "react-redux";
 import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
     const [page, setPage] = useState(1)
-    const { posts, users } = useSelector(store => store)
+    const { posts, users } = useSelector(store => store.app)
     let items = [];
 
-    useEffect(() => {
-        // getAllPosts()
-        //     .then(data => {
-        //         setPosts(data)
-        //     })
-    }, [])
+    
     for (let number = 1; number <= 5; number++) {
         items.push(
             <Pagination.Item
@@ -28,7 +22,7 @@ const Home = () => {
         );
     }
 
-    if (posts.length == 0) {
+    if (posts?.length == 0) {
         return (<Loader />)
     }
 

@@ -3,6 +3,7 @@
 const initialState = {
     posts: [],
     users: [],
+    userPage: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -25,6 +26,15 @@ export default function reducer(state = initialState, action) {
                 ]
             }
         }
+        case 'LOADED_USER_PAGE': {
+            return {
+                ...state,
+                userPage: {
+                    ...action.payload
+                }
+            }
+        }
+
         default:
             return state
     }

@@ -11,19 +11,18 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch({type:'LOAD_POSTS'})
-  }, [])
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch({type:'LOAD_POSTS'})
+  // }, [])
 
   return (
     <>
-    <AlternateHeader/>
-      {/* <button onClick={() => dispatch({type:'LOAD_POSTS'})}>Posts</button> */}
+    <Header/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about-me' element={<AboutMe/>}/>
-      <Route path='/user-posts' element={<UserPosts/>}/>
+      <Route path='/user/:id' element={<UserPosts/>}/>
     </Routes>
     <Footer/>
     </>

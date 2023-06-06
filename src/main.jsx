@@ -1,17 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
-import { BrowserRouter } from 'react-router-dom'
+import { HistoryRouter as Router } from "redux-first-history/rr6";
+// import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import store from './redux/index';
+import { store, history } from './redux/index';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
+  // <React.StrictMode>
+    <Provider store={store}>
+      <Router history={history}>
         <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
+      </Router>
+    </Provider>
+  //  </React.StrictMode>,
 )
