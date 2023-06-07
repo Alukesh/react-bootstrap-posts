@@ -7,7 +7,7 @@ import { Button, Overlay, Popover } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { apiPlaceholderGet } from '../../../axios/axiosApi';
 
-const HomePost = ({ item, author }) => {
+const HomePost = ({ item, author, userPage }) => {
     const dispatch = useDispatch()
     const [show, setShow] = useState(false);
     const [target, setTarget] = useState(null);
@@ -16,7 +16,7 @@ const HomePost = ({ item, author }) => {
 
     const wait = new Promise((resolve, reject) => {
         setTimeout(() => {
-           return resolve()
+            return resolve()
         }, 500);
     })
     const getComments = async () => {
@@ -33,7 +33,6 @@ const HomePost = ({ item, author }) => {
         setShow(!show);
         setTarget(event.target);
         // console.log(getOffset(target).right);
-        // dispatch({ type: 'LOAD_POST_COMMENTS' })
         !comments?.length && getComments()
     };
     function getOffset(el) {
@@ -55,14 +54,22 @@ const HomePost = ({ item, author }) => {
                 </Card.Text>
                 <div className={styles.card__bottom}>
                     <div>
-                        <Link to={'/user/' + author?.id}>
-                            <Image width={40} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9KehZ0Xz2eEw6uQZDN7YcxdzRfLNfyDs-Hg&usqp=CAU" rounded />
-                        </Link>
-                        <Card.Subtitle>{author?.name}</Card.Subtitle>
+                        {
+                            userPage ? '' :
+                                <>
+                                    <Link to={'/user/' + author?.id}>
+                                        <Image width={40} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9KehZ0Xz2eEw6uQZDN7YcxdzRfLNfyDs-Hg&usqp=CAU" rounded />
+                                    </Link>
+                                    <Card.Subtitle>{author?.name}</Card.Subtitle>
+                                </>
+                        }
                     </div>
                     <div>
                         <Card.Link href="#">Read More</Card.Link>
-                        <Card.Link href="#">Other Posts</Card.Link>
+                        {
+                            userPage ? '' :
+                                <Card.Link href="#">Other Posts</Card.Link>
+                        }
                     </div>
                 </div>
                 <div ref={ref} className='mt-2'>

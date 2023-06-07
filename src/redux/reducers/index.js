@@ -1,27 +1,18 @@
+import { LOAD_POSTS, LOAD_POSTS_SUCCESS } from './posts/actions';
 
 
 const initialState = {
-    posts: [],
     users: [],
     userPage: {}
 }
 
-export default function reducer(state = initialState, action) {
+export default function appReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SET_POSTS': {
-            return {
-                ...state,
-                posts: [
-                    // ...state.posts,
-                    ...action.payload
-                ]
-            }
-        }
+
         case 'SET_USERS': {
             return {
                 ...state,
                 users: [
-                    // ...state.users,
                     ...action.payload
                 ]
             }

@@ -2,14 +2,14 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import PostCard from './PostCard/PostCard';
 import { Col, Row } from 'react-bootstrap';
 
-const HomePostGroup = ({ posts, users }) => {
+const HomePostGroup = ({ posts, users, userPage }) => {
 
     return (
         <Row xs={1} md={2} lg={3} className="g-4 mb-5">
 
             {posts?.map((el, idx) => (
                 <Col key={idx}>
-                    <PostCard item={el} author={users.find(item => item.id === el.userId)} />
+                    <PostCard item={el} author={users.find(item => item.id === el.userId)} userPage={userPage}/>
                 </Col>
             ))}
         </Row>
