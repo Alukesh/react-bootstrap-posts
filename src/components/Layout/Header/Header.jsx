@@ -3,12 +3,23 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { LOAD_POSTS } from '../../../redux/reducers/posts/actions';
 
 
 const Header = () => {
+    const dispatch = useDispatch()
+    const {posts} = useSelector(store => store)
+
+    const search = (event) => {
+        dispatch({
+            type: LOAD_POSTS,
+            payload: { page: 0, search: event.target.value }
+        })
+    }
+
     return (
         <header>
             <Navbar key={'sm'} bg="dark" variant='dark' expand={'lg'} className="mb-3">
@@ -40,6 +51,8 @@ const Header = () => {
                         <Form.Control
                             type="search"
                             placeholder="Search"
+                            value={posts?.search}
+                            onChange={search}
                             className="me-2"
                             aria-label="Search"
                         />

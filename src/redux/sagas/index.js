@@ -1,4 +1,4 @@
-import { call, all, spawn, takeEvery, take, fork } from 'redux-saga/effects'
+import { call, all, spawn, take } from 'redux-saga/effects'
 import { loadBasicData } from './initialSaga'
 import pageDataSaga from './pageDataSaga'
 
@@ -14,10 +14,10 @@ export function* loadOnAction() {
 
 export default function* rootSaga(payload) {
     yield all([
-        fork(loadBasicData),
-        fork(pageDataSaga)
+        spawn(loadBasicData),
+        spawn(pageDataSaga)
     ])
-    
+
 }
 
 
