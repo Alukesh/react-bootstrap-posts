@@ -15,7 +15,7 @@ import phone from '../../assets/phone-number-svgrepo-com.svg'
 
 const UserPosts = () => {
     const userData = useSelector(store => store.app.userPage)
-    console.log(userData);
+    
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])

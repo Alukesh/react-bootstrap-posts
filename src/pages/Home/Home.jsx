@@ -1,19 +1,19 @@
+import { useSelector } from "react-redux";
+import HomePostGroup from "../../components/HomePostGroup/HomePostGroup";
+import Loader from "../../components/Loader/Loader";
+import PostsPagination from '../../components/HomePostGroup/PostsPagination/PostsPagination';
 import {
     MDBCol,
     MDBRow,
     MDBBreadcrumb,
     MDBBreadcrumbItem,
 } from 'mdb-react-ui-kit';
-import { useSelector } from "react-redux";
-import HomePostGroup from "../../components/HomePostGroup/HomePostGroup";
-import Loader from "../../components/Loader/Loader";
-import PostsPagination from '../../components/HomePostGroup/PostsPagination/PostsPagination';
 
 const Home = () => {
     const { users } = useSelector(store => store.app)
     const { posts } = useSelector(store => store)
 
-
+   
 
 
     return (

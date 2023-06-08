@@ -5,15 +5,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LOAD_POSTS } from '../../../redux/reducers/posts/actions';
 
 
 const Header = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const {posts} = useSelector(store => store)
 
     const search = (event) => {
+        if (window.location.pathname !== '/') {
+            navigate('/')
+        }
         dispatch({
             type: LOAD_POSTS,
             payload: { page: 0, search: event.target.value }

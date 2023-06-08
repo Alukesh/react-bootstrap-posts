@@ -1,4 +1,3 @@
-import { LOAD_POSTS, LOAD_POSTS_SUCCESS } from './posts/actions';
 
 
 const initialState = {

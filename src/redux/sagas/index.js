@@ -1,21 +1,15 @@
 import { call, all, spawn, take } from 'redux-saga/effects'
 import { loadBasicData } from './initialSaga'
-import pageDataSaga from './pageDataSaga'
+import userPageDataSaga from './userPageDataSaga' 
 
 
 
-export function* loadOnAction() {
-    while (true){
-        yield take('LOAD_POST_COMMENTS')
-
-    }
-}
 
 
 export default function* rootSaga(payload) {
     yield all([
         spawn(loadBasicData),
-        spawn(pageDataSaga)
+        spawn(userPageDataSaga)
     ])
 
 }
