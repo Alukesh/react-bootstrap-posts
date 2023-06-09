@@ -28,3 +28,17 @@
     max-height: 260px;
     overflow-y: auto;
 }
+.card__popover{
+    width: 380px;
+}
+
+@media (max-width: 410px) {
+    .card__popover{
+        width: 300px;
+    }   
+}
+@media (max-width: 340px) {
+    .card__popover{
+        width: 275px;
+    }   
+}

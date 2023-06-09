@@ -1,27 +1,18 @@
-
+export const SET_USERS = 'SET_USERS'
 
 const initialState = {
     users: [],
-    userPage: {}
 }
 
 export default function appReducer(state = initialState, action) {
     switch (action.type) {
 
-        case 'SET_USERS': {
+        case SET_USERS: {
             return {
                 ...state,
                 users: [
                     ...action.payload
                 ]
-            }
-        }
-        case 'LOADED_USER_PAGE': {
-            return {
-                ...state,
-                userPage: {
-                    ...action.payload
-                }
             }
         }
 

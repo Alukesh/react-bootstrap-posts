@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 import appReducer from "./reducers";
 import postsReducer from "./reducers/posts";
 import rootSaga from './sagas'
+import userPageReducer from "./reducers/userPage";
 
 const sagaMiddleware = createSagaMiddleware({})
 
@@ -19,6 +20,7 @@ export const store = createStore(
         router: routerReducer,
         app: appReducer,
         posts: postsReducer,
+        userPage: userPageReducer,
     }),
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(
         applyMiddleware(sagaMiddleware),

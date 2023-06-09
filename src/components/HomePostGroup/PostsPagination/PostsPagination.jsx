@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { LOAD_POSTS } from "../../../redux/reducers/posts/actions";
+import { LOAD_POSTS } from "../../../redux/reducers/posts/index";
 import Pagination from 'react-bootstrap/Pagination';
 
 const PostsPagination = ({ posts }) => {

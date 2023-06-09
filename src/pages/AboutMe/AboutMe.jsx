@@ -7,11 +7,8 @@ import {
     MDBCardText,
     MDBCardBody,
     MDBCardImage,
-    MDBBreadcrumb,
-    MDBBreadcrumbItem,
     MDBProgress,
     MDBProgressBar,
-    MDBIcon,
     MDBListGroup,
     MDBListGroupItem,
     MDBCardLink
@@ -20,24 +17,15 @@ import web from '../../assets/web-svgrepo-com.svg'
 import linkedin from '../../assets/linkedin-svgrepo-com.svg'
 import git from '../../assets/github-01-svgrepo-com.svg'
 import telegram from '../../assets/telegram-svgrepo-com.svg'
-import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 
 
 export default function AboutMe() {
     return (
         <section style={{ backgroundColor: '#eee' }}>
             <MDBContainer className="py-5">
-                <MDBRow>
-                    <MDBCol>
-                        <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-                            <MDBBreadcrumbItem>
-                                <Link to={'/'}>Home</Link>
-                            </MDBBreadcrumbItem>
-                            <MDBBreadcrumbItem active>About Me</MDBBreadcrumbItem>
-                        </MDBBreadcrumb>
-                    </MDBCol>
-                </MDBRow>
+                <BreadCrumbs items={[{ path: '/', text: 'Home' }]} active={'About Me'} />
 
                 <MDBRow>
                     <MDBCol lg="4">
@@ -68,7 +56,7 @@ export default function AboutMe() {
                                         <img width={35} src={web} alt="web site" />
                                         <MDBCardLink target='blank' href='https://alukesh.github.io/AlisherKenzhebaev.htmlCV/' >
                                             My Resume
-                                            {/* <Button  style={{width:'200px'}} variant="primary">My Resume</Button> */}
+                                            {/* <Button style={{ width: '200px' }} variant="primary">My Resume</Button> */}
                                         </MDBCardLink>
                                     </MDBListGroupItem>
 
@@ -76,7 +64,7 @@ export default function AboutMe() {
                                         <img width={35} src={git} alt="my github" />
                                         <MDBCardLink target='blank' href='https://github.com/Alukesh'>
                                             Alukesh
-                                            {/* <Button  style={{width:'200px'}} variant="primary">Alukesh</Button> */}
+                                            {/* <Button style={{ width: '200px' }} variant="primary">My Github</Button> */}
                                         </MDBCardLink>
                                     </MDBListGroupItem>
 
@@ -84,15 +72,15 @@ export default function AboutMe() {
                                         <img width={25} src={linkedin} alt="my linkedin" />
                                         <MDBCardLink target='blank' href='https://linkedin.com/in/alisher-kenzhebaev-1b4796230'>
                                             @Alisher Kenzhebaev
-                                            {/* <Button  style={{width:'200px'}} variant="primary">@Alisher Kenzhebaev</Button> */}
+                                            {/* <Button style={{ width: '200px' }} variant="primary">My Linkedin</Button> */}
                                         </MDBCardLink>
                                     </MDBListGroupItem>
 
                                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                                         <img width={25} src={telegram} alt="my telegram" />
-                                        <MDBCardLink href='#'>
+                                        <MDBCardLink href='https://t.me/Haskiken'>
                                             @Haskiken
-                                            {/* <Button  style={{width:'200px'}} variant="primary">@Haskiken</Button> */}
+                                            {/* <Button style={{ width: '200px' }} variant="primary">@Haskiken</Button> */}
                                         </MDBCardLink>
                                     </MDBListGroupItem>
                                 </MDBListGroup>
@@ -145,9 +133,11 @@ export default function AboutMe() {
                                 <MDBCard className="mb-4 mb-md-0 h-100">
                                     <MDBCardBody className='h-100'>
                                         <MDBCardText className="mb-4"><span className="text-primary font-italic me-1"></span>About</MDBCardText>
-                                        <MDBCardText className="font-italic mb-1">Web Developer</MDBCardText>
-                                        <MDBCardText className="font-italic mb-1">Lives in New York</MDBCardText>
-                                        <MDBCardText className="font-italic mb-0">Photographer</MDBCardText>
+                                        <MDBCardText className="font-italic mb-1"> <p>Begin in 16.07.2021  </p> </MDBCardText>
+                                        <MDBCardText className="font-italic mb-1">  React Javascript ,  web courses, 2021 IT run
+                                        </MDBCardText>
+                                        <MDBCardText className="font-italic mb-0">React, Redux - Bailyk finance. Front-end developer ( from 01 October.2022) 4 month</MDBCardText>
+                                        <MDBCardText className="font-italic mb-0">React, Next.js  - kassir.kg ( from 01.Februry.2023) - now</MDBCardText>
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>
@@ -156,9 +146,9 @@ export default function AboutMe() {
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
                                         <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">assigment</span> Project Status</MDBCardText>
-                                        <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
+                                        <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>JavaScript</MDBCardText>
                                         <MDBProgress className="rounded">
-                                            <MDBProgressBar width={80} valuemin={0} valuemax={100} />
+                                            <MDBProgressBar width={79} valuemin={0} valuemax={100} />
                                         </MDBProgress>
 
                                         <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Website Markup</MDBCardText>
@@ -166,9 +156,9 @@ export default function AboutMe() {
                                             <MDBProgressBar width={72} valuemin={0} valuemax={100} />
                                         </MDBProgress>
 
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>One Page</MDBCardText>
+                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>React</MDBCardText>
                                         <MDBProgress className="rounded">
-                                            <MDBProgressBar width={89} valuemin={0} valuemax={100} />
+                                            <MDBProgressBar width={69} valuemin={0} valuemax={100} />
                                         </MDBProgress>
 
                                         <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Mobile Template</MDBCardText>
@@ -176,7 +166,7 @@ export default function AboutMe() {
                                             <MDBProgressBar width={55} valuemin={0} valuemax={100} />
                                         </MDBProgress>
 
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Backend API</MDBCardText>
+                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Rest API</MDBCardText>
                                         <MDBProgress className="rounded">
                                             <MDBProgressBar width={66} valuemin={0} valuemax={100} />
                                         </MDBProgress>

@@ -7,3 +7,7 @@
 section{
   background-color: '#eee'
 }
+
+.navbar-toggler{
+  margin: 17px !important;
+}

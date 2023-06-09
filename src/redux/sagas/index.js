@@ -1,4 +1,4 @@
-import { call, all, spawn, take } from 'redux-saga/effects'
+import { all, spawn } from 'redux-saga/effects'
 import { loadBasicData } from './initialSaga'
 import userPageDataSaga from './userPageDataSaga' 
 
@@ -30,5 +30,3 @@ export default function* rootSaga(payload) {
 //         }
 //     })
 // })
-
-// yield all(retrySagas)

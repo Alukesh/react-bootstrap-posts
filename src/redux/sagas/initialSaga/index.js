@@ -1,15 +1,16 @@
 import { call, delay, fork, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import { apiPlaceholderGet } from '../../../axios/axiosApi';
-import { LOAD_POSTS, LOAD_POSTS_SUCCESS } from '../../reducers/posts/actions';
+import { LOAD_POSTS, LOAD_POSTS_SUCCESS } from './../../reducers/posts/index';
 import { LOCATION_CHANGE } from 'redux-first-history';
 import { MAIN_ROUTE, getRouteConfig } from '../../../App';
 import { matchPath } from 'react-router';
+import { SET_USERS } from '../../reducers';
 
 
 
 export function* loadUsers() {
     const users = yield call(apiPlaceholderGet, 'users')
-    yield put({ type: 'SET_USERS', payload: users || [] })
+    yield put({ type: SET_USERS , payload: users || [] })
 }
 
 

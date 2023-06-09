@@ -1,0 +1,10 @@
+@media (max-width: 770px) {
+    #header-avatar {
+        display: none;
+    }
+}
+@media (max-width: 400px) {
+    .search {
+        width: 100%;
+    }
+}
